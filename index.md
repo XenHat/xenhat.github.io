@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: Tarnish me!
+tagline: Linux, Second Life, rants, etc
 ---
 {% include JB/setup %}
 
