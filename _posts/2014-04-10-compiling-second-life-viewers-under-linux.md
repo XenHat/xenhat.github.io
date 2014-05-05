@@ -43,14 +43,19 @@ sudo ln -s /usr/lib/i386-linux-gnu/libstdc++.so.6.0.17 /usr/lib/i386-linux-gnu/l
 sudo ln -s /usr/lib/i386-linux-gnu/libXext.so.6 /usr/lib/i386-linux-gnu/libXext.so
 sudo ln -s /usr/lib/i386-linux-gnu/libXrender.so.1 /usr/lib/i386-linux-gnu/libXrender.so
 {% endhighlight %}
+
 Fedora 16-17
+{% highlight bash %}
 sudo yum install nano bison flex glibc-devel libstdc++-devel  \\
 libX11-devel mesa-libGL-devel libXrender-devel gcc-c++ mesa-libGLU-devel  \\
 zlib-devel openssl-devel libogg-devel libpng-devel dbus-glib-devel  \\
 atk-devel cairo-devel gtk2-devel glib2-devel pango-devel python-pip  \\
 python-boto SDL-devel libXext-devel mercurial cmake make libxml2-devel
 sudo pip-python install autobuild
+{% endhighlight %}
+
 Fedora x86_64 (64bit OS)
+{% highlight bash %}
 Install the packages for Fedora 16/17 (see above) then run:
 sudo yum remove libogg-devel glib2-devel &&
 sudo yum install bison flex cairo-devel.i686 dbus-glib-devel.i686  \\
@@ -60,19 +65,28 @@ libstdc++-devel.i686 libX11-devel.i686 libXext-devel.i686  \\
 libXrender-devel.i686 mesa-libGL-devel.i686 mesa-libGLU-devel.i686  \\
 openssl-devel.i686 pango-devel.i686 SDL-devel.i686 zlib-devel.i686  \\
 libxml2-devel.i686
+{% endhighlight %}
+
 OpenSUSE
+{% highlight bash %}
 sudo zypper in mercurial cmake gcc-4.5 gcc45-c++ gcc-c++ bison flex  \\
 glibc-devel libstdc++-devel xorg-x11-libX11-devel mesa-devel  \\
 xorg-x11-libXrender-devel zlib-devel libopenssl-devel libpng12-devel  \\
 libxml2-devel python-pip
 && sudo pip install autobuild
+{% endhighlight %}
+
 Gentoo
+{% highlight bash %}
 emerge -av mercurial cmake bison flex sys-libs/lib-compat  \\
 media-libs/gstreamer dev-python/pip --autounmask-write
 
 sudo pip install autobuild
 You really want to compile SDL with USE=”X opengl” at least.
+{% endhighlight %}
+
 Arch Linux
+{% highlight bash %}
 sudo pacman -S gcc cmake base-devel bison flex glibc libx11 libxrender  \\
 libxml2 mesa zlib openssl libogg libpng inetutils bc gtk2 glib2
 yaourt -S python2
@@ -83,8 +97,10 @@ Since Arch Linux uses python 3 as default, we have to force python 2…
 sudo unlink /usr/bin/python
 sudo ln -s /usr/bin/python2.7 /usr/bin/python
 I know, it’s dirty, but it’s the only way it works.
+{% endhighlight %}
 
 Arch Linux X86_64
+{% highlight bash %}
 do the Arch Linux instructions above, then install these:
 sudo pacman -S multilib-devel bison flex glibc
 sudo pacman -S multilib/lib32-acl multilib/lib32-alsa-lib multilib/lib32-alsa-oss \
@@ -127,32 +143,44 @@ multilib/lib32-xcb-util multilib/lib32-zlib
 If you have a Nvidia graphic card, you’re going to need this:
 
 sudo pacman -S lib32-nvidia-libgl
+{% endhighlight %}
+
 Now, you have to grab the source code.
 First, let’s keep the home folder nicely organized and create a folder where all the source code will go (because when it’s all over the place it looks ugly and takes time to find stuff)
 I will use Linden Lab’s Release channel viewer in this example, adapt if you want to compile a different viewer
 
+{% highlight bash %}
 mkdir -p /home/$USER/src/viewers/
 cd /home/$USER/src/viewers/
 hg clone https://bitbucket.org/lindenlab/viewer-release ll_release
+{% endhighlight %}
 These commands will create a folder called “src” (for SouRCe) and a sub-directory called “viewers” and download the viewer’s source code in it’s own sub folder.
 Get a cup of coffee, it’ll take a while.
 Welcome back.
 Now, we’ll try compiling.
 The autobuild system is pretty much straightforward:
 
+{% highlight bash %}
 cd /home/$USER/src/viewers/ll_release/
 autobuild configure -c ReleaseOS -- -DLL_TESTS:BOOL=FALSE
 autobuild build --no-configure
+{% endhighlight %}
+
 Take a sandwich. Or two. Or a full plate of them. It took 1 hour and a half to compile over here on an AMD Athlon64 II X2 3800+, and 15 minutes on an AMD Phenom II X6 1055T. Estimated to 10 minutes on FX-8350.
 Welcome back.
 Now, check if everything went right. Since this is the release channel, it should compile. if not, well, that’s unfortunate.
 Once you made sure the viewer compiled sucessfully, extract the generated archive somewhere, example in your user directory:
 
+{% highlight bash %}
 tar xvaf build-linux-i686/newview/SecondLife*.tar.* -C /home/$USER/
-Now run the viewer as usual;
+{% endhighlight %}
 
+Now run the viewer as usual;
+{% highlight bash %}
 cd /home/$USER/SecondLife*/
 ./secondlife
+{% endhighlight %}
+
 if it doesn’t crash, congratulations!
 If it does, you probably did something wrong. Or a linden needs to be blamed. Or the world just ended.
 ————
