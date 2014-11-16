@@ -27,8 +27,12 @@ mercurial cmake build-essential bison \
  {libxml2,libgl1-mesa,zlib1g,libssl}-dev \
  {libogg,libpng12,libdbus-glib-1}-dev \
  {libgtk2.0,libglu1-mesa}-dev \
- libgl1-mesa-dev \
- libboost-dev \
+ libgl1-mesa-dev libboost-dev \
+ libqt4-dev-bin qt4-qmake \
+ libqt4-dev libc-ares-dev \
+ libhunspell-dev autoconf \
+ libtool libqt4-core \
+ libxmlrpc-c++8-dev \
  libcloog-isl4 python-boto python-pip -y
 
 sudo pip install autobuild
