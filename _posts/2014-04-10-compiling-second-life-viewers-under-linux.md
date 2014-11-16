@@ -7,18 +7,19 @@ tags: []
 ---
 {% include JB/setup %}
 
-This page will gradually be converted to markdown format as I get to it...
+#####This page will gradually be converted to markdown format as I get to it...
 
-Last Updated: Sun Mar 23 02:27:37 EDT 2014 — Fixed 64-bit command
-I’m trying to make the most straightforward guide to compile Second life viewers on various GNU/Linux distributions. Package list for Arch Linux, Debian, Fedora 16/17, Gentoo and OpenSUSE 11 are available.
+Last Updated: **Sun Nov 14 2014** — _Fixed 32-bit Ubuntu libs and more markdown formatting_
 
-All we are going to use is a terminal and a text editor, very few mouse actions.
+I’m trying to make the most straightforward guide to compile Second life viewers on various GNU/Linux distributions. Package list for **Arch Linux**, **Debian**, **Fedora 16**/**17**, **Gentoo** and **OpenSUSE 11** are available.
 
-First, you need to grab the necessary programs required to compile the source code.
+All we are going to use is a **terminal** and a **text editor**, very few mouse actions.
 
-Please click the button corresponding to your distribution.
+### Setting up the build environment
 
-Debian/Ubuntu 32-bit
+The required libraries and tools are the following:
+
+####Debian/Ubuntu 32-bit
 {% highlight bash %}
 sudo apt-get install \
 mercurial cmake build-essential bison \
@@ -31,7 +32,7 @@ mercurial cmake build-essential bison \
 sudo pip install autobuild
 {% endhighlight %}
 
-Debian/Ubuntu 64-bit
+#####Debian/Ubuntu 64-bit
 See debian/Ubuntu 32bit, then;
 {% highlight bash %}
 sudo apt-get install gcc-4.7-multilib libx11-dev:i386 libxrender-dev:i386\
@@ -44,7 +45,7 @@ sudo ln -s /usr/lib/i386-linux-gnu/libXext.so.6 /usr/lib/i386-linux-gnu/libXext.
 sudo ln -s /usr/lib/i386-linux-gnu/libXrender.so.1 /usr/lib/i386-linux-gnu/libXrender.so
 {% endhighlight %}
 
-Fedora 16-17
+####Fedora 16-17
 {% highlight bash %}
 sudo yum install nano bison flex glibc-devel libstdc++-devel  \\
 libX11-devel mesa-libGL-devel libXrender-devel gcc-c++ mesa-libGLU-devel  \\
@@ -54,7 +55,7 @@ python-boto SDL-devel libXext-devel mercurial cmake make libxml2-devel
 sudo pip-python install autobuild
 {% endhighlight %}
 
-Fedora x86_64 (64bit OS)
+#####Fedora 64bit
 {% highlight bash %}
 Install the packages for Fedora 16/17 (see above) then run:
 sudo yum remove libogg-devel glib2-devel &&
@@ -67,7 +68,7 @@ openssl-devel.i686 pango-devel.i686 SDL-devel.i686 zlib-devel.i686  \\
 libxml2-devel.i686
 {% endhighlight %}
 
-OpenSUSE
+####OpenSUSE
 {% highlight bash %}
 sudo zypper in mercurial cmake gcc-4.5 gcc45-c++ gcc-c++ bison flex  \\
 glibc-devel libstdc++-devel xorg-x11-libX11-devel mesa-devel  \\
@@ -76,7 +77,7 @@ libxml2-devel python-pip
 && sudo pip install autobuild
 {% endhighlight %}
 
-Gentoo
+####Gentoo
 {% highlight bash %}
 emerge -av mercurial cmake bison flex sys-libs/lib-compat  \\
 media-libs/gstreamer dev-python/pip --autounmask-write
@@ -85,7 +86,7 @@ sudo pip install autobuild
 You really want to compile SDL with USE=”X opengl” at least.
 {% endhighlight %}
 
-Arch Linux
+####Arch Linux
 {% highlight bash %}
 sudo pacman -S gcc cmake base-devel bison flex glibc libx11 libxrender  \\
 libxml2 mesa zlib openssl libogg libpng inetutils bc gtk2 glib2
@@ -99,7 +100,7 @@ sudo ln -s /usr/bin/python2.7 /usr/bin/python
 I know, it’s dirty, but it’s the only way it works.
 {% endhighlight %}
 
-Arch Linux X86_64
+#####Arch Linux 64bit
 {% highlight bash %}
 do the Arch Linux instructions above, then install these:
 sudo pacman -S multilib-devel bison flex glibc
@@ -145,7 +146,7 @@ If you have a Nvidia graphic card, you’re going to need this:
 sudo pacman -S lib32-nvidia-libgl
 {% endhighlight %}
 
-Now, you have to grab the source code.
+### Getting the code
 First, let’s keep the home folder nicely organized and create a folder where all the source code will go (because when it’s all over the place it looks ugly and takes time to find stuff)
 I will use Linden Lab’s Release channel viewer in this example, adapt if you want to compile a different viewer
 
@@ -166,9 +167,12 @@ autobuild configure -c ReleaseOS -- -DLL_TESTS:BOOL=FALSE
 autobuild build --no-configure
 {% endhighlight %}
 
-Take a sandwich. Or two. Or a full plate of them. It took 1 hour and a half to compile over here on an AMD Athlon64 II X2 3800+, and 15 minutes on an AMD Phenom II X6 1055T. Estimated to 10 minutes on FX-8350.
+This will take a while. You probably should get a sammish. Or two. Or a full plate of them.
+It took 1:30:00 to compile on an AMD Athlon64 II X2 3800+, 00:15:00 on an AMD Phenom II X6 1055T. Numbers still TBD for AMD FX-8350.
+
 Welcome back.
-Now, check if everything went right. Since this is the release channel, it should compile. if not, well, that’s unfortunate.
+Now, check if everything went right. Good project managers will ensure that the code in the repository compiles for everyone.If that's not the case, that’s unfortunate.
+
 Once you made sure the viewer compiled sucessfully, extract the generated archive somewhere, example in your user directory:
 
 {% highlight bash %}
@@ -182,6 +186,15 @@ cd /home/$USER/SecondLife*/
 {% endhighlight %}
 
 if it doesn’t crash, congratulations!
-If it does, you probably did something wrong. Or a linden needs to be blamed. Or the world just ended.
+
+If it does crash, you probably:
+* Did something wrong (Like forget a library, especially on blank window)
+* A programmer needs to be slapped
+* That viewer doesn't support linux (yet?)
+* The world just ended.
+* 
 ————
-Thanks Sythos (Altair Memo) for the amazing help to find the required libs and indications to fix the code myself back on Kirstens Viewer, as well as his patience for my errors. And my wicked computer and terrible luck.
+
+Many thanks Sythos (Altair.Memo) for the amazing help to find the required libs
+    and indications to fix the code myself back on Kirstens Viewer (2010-2011),
+    as well as his patience.
