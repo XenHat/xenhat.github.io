@@ -21,12 +21,12 @@ Please click the button corresponding to your distribution.
 Debian/Ubuntu 32-bit
 {% highlight bash %}
 sudo apt-get install \
-mercurial cmake build-essential bison
-flex {libc6,libx11,libxrender}-dev \
-{libxml2,libgl1-mesa,zlib1g,libssl}-dev \
-{libogg,libpng12,libdbus-glib-1}-dev \
-{libgtk2.0,libglu1-mesa}-dev \
-libcloog-ppl0 python-boto python-pip -y
+mercurial cmake build-essential bison \
+ flex {libc6,libx11,libxrender}-dev \
+ {libxml2,libgl1-mesa,zlib1g,libssl}-dev \
+ {libogg,libpng12,libdbus-glib-1}-dev \
+ {libgtk2.0,libglu1-mesa}-dev \
+ libcloog-isl4 python-boto python-pip -y
 
 sudo pip install autobuild
 {% endhighlight %}
