@@ -118,11 +118,13 @@ libxml2-devel python-pip
 <h4>
 <a id="gentoo" class="anchor" href="#gentoo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gentoo</h4>
 
-<pre><code>emerge -av mercurial cmake bison flex sys-libs/lib-compat  \\
-media-libs/gstreamer dev-python/pip --autounmask-write
-
-sudo pip install autobuild
-You really want to compile SDL with USE=”X opengl” at least.
+<pre><code>
+emerge -a --no-replace app-portage/gentoolkit
+euse --enable X --package media-libs/libsdl
+emerge -av mercurial cmake bison flex sys-libs/lib-compat \\
+media-libs/gstreamer dev-python/pip media-libs/libsdl
+python2 -m pip install llbase
+python2 -m pip install autobuild
 </code></pre>
 
 <h4>
