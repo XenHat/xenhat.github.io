@@ -122,7 +122,8 @@ libxml2-devel python-pip
 emerge -a --no-replace app-portage/gentoolkit
 euse --enable X --package media-libs/libsdl
 emerge -av mercurial cmake bison flex sys-libs/lib-compat \\
-media-libs/gstreamer dev-python/pip media-libs/libsdl
+media-libs/gstreamer dev-python/pip media-libs/libsdl \\
+dev-libs/libffi-compat
 python2 -m pip install llbase
 python2 -m pip install autobuild
 </code></pre>
