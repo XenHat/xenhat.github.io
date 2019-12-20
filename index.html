@@ -83,10 +83,10 @@ sudo ln -s /usr/lib/i386-linux-gnu/libXrender.so.1 /usr/lib/i386-linux-gnu/libXr
 <h4>
 <a id="fedora-16-17" class="anchor" href="#fedora-16-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fedora 16-17</h4>
 
-<pre><code>sudo yum install nano bison flex glibc-devel libstdc++-devel  \\
-libX11-devel mesa-libGL-devel libXrender-devel gcc-c++ mesa-libGLU-devel  \\
-zlib-devel openssl-devel libogg-devel libpng-devel dbus-glib-devel  \\
-atk-devel cairo-devel gtk2-devel glib2-devel pango-devel python-pip  \\
+<pre><code>sudo yum install nano bison flex glibc-devel libstdc++-devel  \
+libX11-devel mesa-libGL-devel libXrender-devel gcc-c++ mesa-libGLU-devel  \
+zlib-devel openssl-devel libogg-devel libpng-devel dbus-glib-devel  \
+atk-devel cairo-devel gtk2-devel glib2-devel pango-devel python-pip  \
 python-boto SDL-devel libXext-devel mercurial cmake make libxml2-devel
 sudo pip-python install autobuild
 </code></pre>
@@ -96,21 +96,21 @@ sudo pip-python install autobuild
 
 <pre><code>Install the packages for Fedora 16/17 (see above) then run:
 sudo yum remove libogg-devel glib2-devel &amp;&amp;
-sudo yum install bison flex cairo-devel.i686 dbus-glib-devel.i686  \\
-glib2-devel.i686 glibc-devel.i686 atk-devel.i686  \\
-gtk2-devel.i686 libogg-devel.i686 libpng-devel.i686  \\
-libstdc++-devel.i686 libX11-devel.i686 libXext-devel.i686  \\
-libXrender-devel.i686 mesa-libGL-devel.i686 mesa-libGLU-devel.i686  \\
-openssl-devel.i686 pango-devel.i686 SDL-devel.i686 zlib-devel.i686  \\
+sudo yum install bison flex cairo-devel.i686 dbus-glib-devel.i686  \
+glib2-devel.i686 glibc-devel.i686 atk-devel.i686  \
+gtk2-devel.i686 libogg-devel.i686 libpng-devel.i686  \
+libstdc++-devel.i686 libX11-devel.i686 libXext-devel.i686  \
+libXrender-devel.i686 mesa-libGL-devel.i686 mesa-libGLU-devel.i686  \
+openssl-devel.i686 pango-devel.i686 SDL-devel.i686 zlib-devel.i686  \
 libxml2-devel.i686
 </code></pre>
 
 <h4>
 <a id="opensuse" class="anchor" href="#opensuse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OpenSUSE</h4>
 
-<pre><code>sudo zypper in mercurial cmake gcc-4.5 gcc45-c++ gcc-c++ bison flex  \\
-glibc-devel libstdc++-devel xorg-x11-libX11-devel mesa-devel  \\
-xorg-x11-libXrender-devel zlib-devel libopenssl-devel libpng12-devel  \\
+<pre><code>sudo zypper in mercurial cmake gcc-4.5 gcc45-c++ gcc-c++ bison flex  \
+glibc-devel libstdc++-devel xorg-x11-libX11-devel mesa-devel  \
+xorg-x11-libXrender-devel zlib-devel libopenssl-devel libpng12-devel  \
 libxml2-devel python-pip
 &amp;&amp; sudo pip install autobuild
 </code></pre>
@@ -121,8 +121,8 @@ libxml2-devel python-pip
 <pre><code>
 emerge -a --no-replace app-portage/gentoolkit
 euse --enable X --package media-libs/libsdl
-emerge -av mercurial cmake bison flex sys-libs/lib-compat \\
-media-libs/gstreamer dev-python/pip media-libs/libsdl \\
+emerge -av mercurial cmake bison flex sys-libs/lib-compat \
+media-libs/gstreamer dev-python/pip media-libs/libsdl \
 dev-libs/libffi-compat
 python2 -m pip install llbase
 python2 -m pip install autobuild
@@ -131,7 +131,7 @@ python2 -m pip install autobuild
 <h4>
 <a id="arch-linux" class="anchor" href="#arch-linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arch Linux</h4>
 
-<pre><code>sudo pacman -S gcc cmake base-devel bison flex glibc libx11 libxrender  \\
+<pre><code>sudo pacman -S gcc cmake base-devel bison flex glibc libx11 libxrender  \
 libxml2 mesa zlib openssl libogg libpng inetutils bc gtk2 glib2
 yaourt -S python2
 yaourt -S python2-boto
