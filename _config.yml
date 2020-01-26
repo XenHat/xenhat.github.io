@@ -1,0 +1,8 @@
+title: Xenhat's Github website
+description: MeowMeowMeow. Pardon the mess.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-hacker
+
+gems:
+  - jekyll-mentions
